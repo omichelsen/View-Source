@@ -43,7 +43,7 @@ if ($_POST)
 <head>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width" />
-	<title>Source of <?php echo $uri; ?></title>
+	<title>Source of <?php echo htmlspecialchars($uri); ?></title>
 	<style>
 		pre {
 			overflow: auto;
