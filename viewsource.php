@@ -53,7 +53,7 @@ if ($_POST)
 			white-space: pre-wrap;
 			word-wrap: break-word;
 		}
-		<? echo $stylesheet; ?>
+		<?php echo $stylesheet; ?>
 	</style>
 </head>
 <body>
