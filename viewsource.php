@@ -22,7 +22,7 @@ if ($_POST)
 	$data = $_POST['DOM'];
 	$htmlenc = urldecode($data);
 	
-	$geshi = new GeSHi($htmlenc,'html5');
+	$geshi = new GeSHi($htmlenc, 'html5');
 	$geshi->enable_keyword_links(false);
 	$geshi->enable_classes();
 	
@@ -32,7 +32,7 @@ if ($_POST)
 	$htmlenc = str_replace("\t", '    ', $htmlenc);
 	
 	// Trim trailing spaces
-	preg_replace("/[ \t]+$/", '', $htmlenc);
+	$htmlenc = preg_replace("/[ \t]+$/", '', $htmlenc);
 	
 	// Markup URIs and paths as links
 	$htmlenc = markupLinks($htmlenc,$uri);	
@@ -43,25 +43,20 @@ if ($_POST)
 ?>
 <!DOCTYPE html>
 <html>
-
 <head>
-	<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
-	<meta name="viewport" content="width=device-width, user-scalable=yes" />
-
-	<title>Source of <?php echo $_GET['uri'] ?></title>
-	
-	<style type="text/css">
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width" />
+	<title>Source of <?php echo htmlspecialchars($uri); ?></title>
+	<style>
 		pre {
 			overflow: auto;
 			white-space: pre-wrap;
+			word-wrap: break-word;
 		}
 		<? echo $stylesheet; ?>
 	</style>
 </head>
-
 <body>
-
-<?php echo $htmlenc ?>
-
+<?php echo $htmlenc; ?>
 </body>
 </html>
