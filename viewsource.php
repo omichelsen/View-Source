@@ -36,6 +36,9 @@ if ($_POST)
 	
 	// Markup URIs and paths as links
 	$htmlenc = markupLinks($htmlenc,$uri);	
+
+	// Print geshi stylesheet
+	$stylesheet = $geshi->get_stylesheet();
 }
 ?>
 <!DOCTYPE html>
@@ -52,7 +55,7 @@ if ($_POST)
 			overflow: auto;
 			white-space: pre-wrap;
 		}
-		<? echo $geshi->get_stylesheet(); ?>
+		<? echo $stylesheet; ?>
 	</style>
 </head>
 
